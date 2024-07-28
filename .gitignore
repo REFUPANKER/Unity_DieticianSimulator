@@ -1,0 +1,14 @@
+Library/
+Logs/
+Packages/
+UserSettings/
+ProjectSettings/
+Assets/Adaptive Performance/
+Temp/
+*.csproj
+*.sln
+*.meta
+*.vscode
+*.asset
+*.log
+.gitattributes
