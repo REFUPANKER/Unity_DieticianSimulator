@@ -11,4 +11,5 @@ Temp/
 *.vscode
 *.asset
 *.log
+*.mat
 .gitattributes

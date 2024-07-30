@@ -60,6 +60,7 @@ public class PatientAi : MonoBehaviour
                 case 3:
                     Debug.Log("Sit");
                     agent.isStopped = true;
+                    agent.transform.rotation = Quaternion.LookRotation(ChairSide.forward);
                     target++;
                     break;
                 // leave room
@@ -68,7 +69,7 @@ public class PatientAi : MonoBehaviour
                     target++;
                     break;
                 case 6:
-                    agent.SetDestination(DoorBack);
+                    agent.SetDestination(new Vector3(Door.transform.position.x - 4, Door.transform.position.y, Door.transform.position.z + 5));
                     target++;
                     break;
                 case 7:
