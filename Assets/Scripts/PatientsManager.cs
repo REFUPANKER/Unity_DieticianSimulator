@@ -7,17 +7,26 @@ public class PatientsManager : MonoBehaviour
     public Patient ExamplePatient;
 
     public Patient_UI ExampleUiPatient;
+    [Header("For Patient Ai")]
+    public Animation ROOM_Door;
+    public Transform ROOM_ChairSide;
+
     public Color[] ItemColors = new Color[2];
 
     int TrackTransform = 0;
     int ExamplePatientsCount = 5;
+
+
+    
     void Start()
     {
         for (int i = 0; i < ExamplePatientsCount; i++, TrackTransform++)
         {
-            Patient pt = Instantiate(ExamplePatient, transform);
+            Patient pt = Instantiate(ExamplePatient, new Vector3(-i*ExamplePatient.transform.localScale.x, ExamplePatient.transform.localScale.z, -25), Quaternion.identity, transform);
             pt.p_ui = Instantiate(ExampleUiPatient, Monitor_PatientsHolder.transform);
             pt.patientsManager = this;
+            pt.pAi.Door=ROOM_Door;
+            pt.pAi.ChairSide=ROOM_ChairSide;
         }
         ColorizePatientMonitorItems();
     }

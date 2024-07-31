@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class PatientAi : MonoBehaviour
 {
+    public Patient patient;
     private NavMeshAgent agent;
     public Animation Door;
     public Transform ChairSide;
@@ -35,6 +36,7 @@ public class PatientAi : MonoBehaviour
     }
     public void RoomLeave()
     {
+        patient.pppm.gameObject.SetActive(false);
         agent.isStopped = false;
         agent.SetDestination(ChairSide.position);
         target = 5;
@@ -59,6 +61,8 @@ public class PatientAi : MonoBehaviour
                     break;
                 case 3:
                     Debug.Log("Sit");
+                    patient.pppm.gameObject.SetActive(true);
+                    patient.pppm.FillLabels(patient);
                     agent.isStopped = true;
                     agent.transform.rotation = Quaternion.LookRotation(ChairSide.forward);
                     target++;
@@ -80,19 +84,23 @@ public class PatientAi : MonoBehaviour
                 case 8:
                     SwitchDoorAnimations();
                     Debug.Log("Patient left");
-                    agent.isStopped = true;
+                    agent.SetDestination(new Vector3(Door.transform.position.x - 4, Door.transform.position.y, Door.transform.position.z - 10));
+                    target++;
+                    break;
+                case 9:
+                    patient.DestroyPatient();
                     target++;
                     break;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            RoomEnter();
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            RoomLeave();
-        }
+        // if (Input.GetKeyDown(KeyCode.C))
+        // {
+        //     RoomEnter();
+        // }
+        // if (Input.GetKeyDown(KeyCode.V))
+        // {
+        //     RoomLeave();
+        // }
     }
 }

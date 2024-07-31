@@ -292,10 +292,10 @@ RectTransform:
   - {fileID: 268649622}
   m_Father: {fileID: 802549145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 690, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 920, y: -200}
+  m_SizeDelta: {x: 690, y: 400}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &174226611
 MonoBehaviour:
@@ -630,10 +630,10 @@ RectTransform:
   - {fileID: 2131467069}
   m_Father: {fileID: 802549145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 230, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 230, y: 400}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &268186618
 MonoBehaviour:
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kennedy i ben vurdum
+  m_text: Example text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 430323941}
   - component: {fileID: 430323940}
   m_Layer: 5
-  m_Name: PatientAge
+  m_Name: PatientGender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1796,6 +1796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 575006915}
   - component: {fileID: 575006916}
+  - component: {fileID: 575006917}
   m_Layer: 0
   m_Name: PATIENTS
   m_TagString: Untagged
@@ -1835,9 +1836,26 @@ MonoBehaviour:
     type: 3}
   ExampleUiPatient: {fileID: 6622094492785734947, guid: 2544a722c904b774bb0ad730885e47d2,
     type: 3}
+  ROOM_Door: {fileID: 8918280151403551473}
+  ROOM_ChairSide: {fileID: 2090811716}
   ItemColors:
   - {r: 0.31097892, g: 0.78113204, b: 0.5173876, a: 1}
   - {r: 0.17105722, g: 0.5849056, b: 0.51215607, a: 1}
+--- !u!114 &575006917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575006914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139c4c1e4c879d345bbe6877a237cdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pmgr: {fileID: 575006916}
+  nfmgr: {fileID: 7421162435332338838}
+  PatientDetailsPanel: {fileID: 824504584}
 --- !u!1 &680809305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,7 +2004,7 @@ GameObject:
   - component: {fileID: 692906426}
   - component: {fileID: 692906425}
   m_Layer: 5
-  m_Name: Ready
+  m_Name: Completed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2055,7 +2073,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 692906426}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 575006917}
+        m_TargetAssemblyTypeName: PatientOrderManager, Assembly-CSharp
+        m_MethodName: PatientHealed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &692906426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2245,7 +2275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Age
+  m_text: Gender
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 135440c18370de24fbcdb89120d47061, type: 2}
   m_sharedMaterial: {fileID: -8721337995916846789, guid: 135440c18370de24fbcdb89120d47061,
@@ -2480,10 +2510,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7421162435332338838}
-        m_TargetAssemblyTypeName: NotificationManager, Assembly-CSharp
-        m_MethodName: ShowNotification
-        m_Mode: 5
+      - m_Target: {fileID: 575006917}
+        m_TargetAssemblyTypeName: PatientOrderManager, Assembly-CSharp
+        m_MethodName: CallNext
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2545,12 +2575,12 @@ GameObject:
   - component: {fileID: 794666414}
   - component: {fileID: 794666413}
   m_Layer: 0
-  m_Name: Patient
+  m_Name: TEST_PatientAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &794666410
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2610,7 +2640,7 @@ Transform:
   m_GameObject: {fileID: 794666408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.3, y: 2, z: -25}
+  m_LocalPosition: {x: 5, y: 2, z: -25}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2672,6 +2702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc657763e2172a84887500bb239c8912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patient: {fileID: 0}
   Door: {fileID: 8918280151403551473}
   ChairSide: {fileID: 2090811716}
 --- !u!1 &802549144
@@ -2708,10 +2739,10 @@ RectTransform:
   - {fileID: 174226610}
   m_Father: {fileID: 824504580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 400}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 460, y: -260}
+  m_SizeDelta: {x: 920, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &802549147
 CanvasRenderer:
@@ -2756,6 +2787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 824504580}
+  - component: {fileID: 824504584}
   - component: {fileID: 824504582}
   - component: {fileID: 824504581}
   - component: {fileID: 824504583}
@@ -2765,7 +2797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &824504580
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2852,6 +2884,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &824504584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824504579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c509b5f37bf6ed4da5a23e2e3e0eff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label_Name: {fileID: 1785683642}
+  Label_Gender: {fileID: 430323940}
+  Label_Weight: {fileID: 1367230806}
+  Label_WantsTo: {fileID: 680809307}
 --- !u!1 &837801659
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,7 +3195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ready
+  m_text: Completed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 135440c18370de24fbcdb89120d47061, type: 2}
   m_sharedMaterial: {fileID: -8721337995916846789, guid: 135440c18370de24fbcdb89120d47061,
@@ -3315,7 +3363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3999,7 +4047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5202,10 +5250,10 @@ RectTransform:
   - {fileID: 1784611789}
   m_Father: {fileID: 824504580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 460, y: 0}
+  m_SizeDelta: {x: 920, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1826622825
 MonoBehaviour:
@@ -5667,10 +5715,10 @@ RectTransform:
   - {fileID: 692906424}
   m_Father: {fileID: 824504580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 59.600006}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 460, y: -519.6}
+  m_SizeDelta: {x: 920, y: 59.600006}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2133718314
 MonoBehaviour:
@@ -5692,7 +5740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7244,7 +7292,7 @@ GameObject:
   - component: {fileID: 6513825498833808917}
   - component: {fileID: 2213407750713455198}
   - component: {fileID: 8972957535371162162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Couch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8123,7 +8171,7 @@ GameObject:
   - component: {fileID: 198439222316100864}
   - component: {fileID: 4650492465332392983}
   - component: {fileID: 5162995004837508594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Couch.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8213,7 +8261,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1327768597}
+  - {fileID: 794666412}
   - {fileID: 388129709}
   - {fileID: 1072790779}
-  - {fileID: 794666412}
   - {fileID: 543450653464182727}
