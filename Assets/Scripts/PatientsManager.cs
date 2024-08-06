@@ -14,7 +14,7 @@ public class PatientsManager : MonoBehaviour
     public Color[] ItemColors = new Color[2];
 
     int TrackTransform = 0;
-    int ExamplePatientsCount = 5;
+    int ExamplePatientsCount = 10;
 
 
     

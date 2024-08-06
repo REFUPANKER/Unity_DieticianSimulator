@@ -9,7 +9,7 @@ public class Patient : MonoBehaviour
 {
     public PatientsManager patientsManager;
 
-    public string Name { get { return p_ui.Name.text; } set { p_ui.Name.text = value; } }
+    public string Name { get; set; }
     public int Gender { get; set; }
     public int Weight { get; set; }
     public string WantsTo { get; set; }
@@ -23,15 +23,17 @@ public class Patient : MonoBehaviour
     {
         pAi.patient = this;
         p_ui.patient = this;
-        p_ui.DeletePatient.onClick.AddListener(() => DestroyPatient());
 
         for (int i = 0; i < 6; i++)
         {
             Name += Convert.ToChar(UnityEngine.Random.Range(65, 91));
         }
+        gameObject.name="Patient_"+Name;
+        p_ui.gameObject.name="Patient_"+Name;
         Gender = UnityEngine.Random.Range(0, 10);
         Weight = UnityEngine.Random.Range(50, 180);
         WantsTo = (Weight > 100) ? "Get Fit" : "Get Muscles";
+        p_ui.DisplayText(Name+"\t"+WantsTo);
     }
 
     public void DestroyPatient()
